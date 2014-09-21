@@ -1,30 +1,39 @@
-alert("hello");
-// $(function(){
+$(function(){
+	$.get('/players', function(players) {
+		var $playerList = $(".attendancePanel");
+		var $table = $("<table/>", {
+			"class": "table table-bordered"
+		}).appendTo($playerList);
+		var $tableHead = "<thead><tr><th>Name</th><th>Attendance</th><th>Back Number</th><th>Position</th></tr></thead><tbody></tbody>";
+		$($table).html($tableHead);
 
-	$.ajax({
-	       type: "GET",
-	       dataType: "json",
-	       url: "http://localhost:1337/players",
-	       success: function (d) {
-	           // replace div's content with returned data
-	           $('#loading').html(d);
-	           alert("am I here ");
-	       }
-	    });
-	// $.get( "/players", function(data) {
-	// 	console.log( "Data Loaded: " + data);
-	// });
+		$.each(players, function(i, player) {
+			var name = player.name,
+				attendance= player.attendance,
+				backNumber = player.backNumber,
+				position = player.position;
 
-	// $.each(players, function(i, player) {
-	// 	renderItem(player);
-	// });
+			
+			var $playerRow = $("<tr/>", {
+				"class": "player-row"
+			}).appendTo($table);
+			
+			$("<td/>", {
+				"text": name
+			}).appendTo($playerRow);
 
-	// var renderItem = function(player) {
-	// 	var name = player.name,
-	// 			amount = player.attendance;
-	// 	console.log(name);
-	// 	console.log(amount);
-	// };
+			$("<td/>", {
+				"text": attendance
+			}).appendTo($playerRow);
 
-	// console.log("hello");
-// });
+			$("<td/>", {
+				"text": backNumber
+			}).appendTo($playerRow);
+
+			$("<td/>", {
+				"text": position
+			}).appendTo($playerRow);
+
+		})
+	})
+});

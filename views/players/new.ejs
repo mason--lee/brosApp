@@ -1,26 +1,28 @@
-<section>
-	<form role="form" action="/players/create" method="POST">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" name="name" class="form-control" id="player-name" placeholder="Enter your name">
-		</div>
-		<div class="form-group">
-			<label>Are attending the game with this week?</label>
-			<select name="attendance" class="form-control">
-				<option value="yes">Yes</option>
-				<option value="no">No</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="back-number">Back Number</label>
-			<input type="number" name="backNumber" class="form-control" id="back-number" placeholder="Enter your back number">
-		</div>
-		<div class="form-group">
-			<label for="position">Position</label>
-			<input type="number" name="position" class="form-control" id="position" placeholder="Enter your preferred position">
-		</div>
+<section class="main-panel clearfix">
+	<div class="container col-md-5 center-block">
+		<form class="form-horizontal" role="form" action="/players/create" method="POST">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" name="name" class="form-control" id="player-name" placeholder="Enter your name">
+			</div>
+			<div class="form-group">
+				<label>Are attending the game with this week?</label>
+				<select name="attendance" class="form-control">
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="back-number">Back Number</label>
+				<input type="number" name="backNumber" class="form-control" id="back-number" placeholder="Enter your back number">
+			</div>
+			<div class="form-group">
+				<label for="position">Position</label>
+				<input type="number" name="position" class="form-control" id="position" placeholder="Enter your preferred position">
+			</div>
 
-		<button type="submit" class="btn btn-primary">Submit</button>
-		<input type="hidden" name="_csrf" value="<%= _csrf %>" />
-	</form>
+			<button type="submit" class="btn btn-primary">Submit</button>
+			<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+		</form>
+	</div>
 </section>

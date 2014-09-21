@@ -23,7 +23,8 @@ module.exports = {
 
 			// After successfully creating the player
 			// redirect to the show action
-			res.json(user);
+			// res.json(user);
+			res.redirect('/');
 		})
 	}
 };
